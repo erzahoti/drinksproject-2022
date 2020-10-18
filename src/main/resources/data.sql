@@ -1,4 +1,4 @@
-/*INSERT INTO res_user(id, name, email, address) VALUES(1, 'Erza', 'erza@gmail.com', 'Messina, IT');
+INSERT INTO res_user(id, name, email, address) VALUES(1, 'Erza Hoti', 'erza@gmail.com', 'Messina, IT');
 
 INSERT INTO drink_type(id, name, description) VALUES(1, 'ITALIAN_COFFEE', 'Italian Coffee');
 INSERT INTO drink_type(id, name, description) VALUES(2, 'AMERICAN_COFFEE', 'American Coffee');
@@ -12,4 +12,4 @@ INSERT INTO drink(id, drink_type_id, description, price, quantity) VALUES (4, 4,
 
 insert into discount(id, code, percentage) values(1, '50BLACKFRIDAY', 50)
 
-*/
+

@@ -1,4 +1,4 @@
-# DrinksUi
+# Drinks
 
 To run this project you should have already installed Java 11 (Set JAVA_HOME Path), PostgreSQL 11, Apache Maven
 
