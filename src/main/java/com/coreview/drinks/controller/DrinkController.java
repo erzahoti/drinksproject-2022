@@ -2,7 +2,6 @@ package com.coreview.drinks.controller;
 
 import com.coreview.drinks.data.drink.Drink;
 import com.coreview.drinks.service.DrinkService;
-import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +21,10 @@ public class DrinkController {
         this.drinkService = drinkService;
     }
 
+    /**
+     * Get all drinks
+     * @return drinks
+     */
     @GetMapping("/drinks")
     public ResponseEntity<List<Drink>> getAllDrinks() {
         return new ResponseEntity(drinkService.getAllDrinks(), new HttpHeaders(), HttpStatus.OK);

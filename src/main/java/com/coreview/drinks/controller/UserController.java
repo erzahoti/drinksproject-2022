@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @RestController
@@ -19,10 +20,19 @@ public class UserController {
         this.userService = userService;
     }
 
-
+    /**
+     * Get User Information
+     * @param id Integer
+     * @return User
+     */
     @GetMapping("/user")
-    public ResponseEntity<User> getAllDrinks(@RequestParam Integer id) {
-        User user = this.userService.getUserById(id).get();
-        return new ResponseEntity(user, new HttpHeaders(), HttpStatus.OK);
+    public ResponseEntity<User> getUser(@RequestParam Integer id) {
+        try {
+            User user = this.userService.getUserById(id).get();
+            return new ResponseEntity<>(user, new HttpHeaders(), HttpStatus.OK);
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity("User not found!", new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        }
+
     }
 }

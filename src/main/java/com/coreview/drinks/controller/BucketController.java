@@ -11,13 +11,11 @@ import com.coreview.drinks.service.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -36,6 +34,11 @@ public class BucketController {
         this.bucketOrderService = bucketOrderService;
     }
 
+    /**
+     * Add a drink to the bucket
+     * @param drinkToAdd Drink
+     * @return Bucket
+     */
     @PostMapping("/bucket/add")
     public ResponseEntity<Bucket> addToBucket(@RequestBody Drink drinkToAdd) {
         try {
@@ -48,9 +51,14 @@ public class BucketController {
 
     }
 
+    /**
+     * Get Bucket
+     * @return User's Bucket
+     */
     @GetMapping("bucket/read")
     public ResponseEntity<Optional<Bucket>> getBucket() {
         try {
+            // if user is logged in, we have to get logged in user id.
             Optional<User> user = userService.getUserById(1);
             return new ResponseEntity<>(bucketService.getBucket(user.get()), new HttpHeaders(), HttpStatus.OK);
         } catch (Exception e) {
@@ -58,6 +66,12 @@ public class BucketController {
         }
     }
 
+    /**
+     * Update Bucket
+     * @param request Bucket and Bucket order to update.
+     * @return Updated Bucket
+     * @throws JsonProcessingException
+     */
     @PutMapping("bucket/update")
     public ResponseEntity<Bucket> updateBucket(@RequestBody JsonNode request) throws JsonProcessingException {
         try {
@@ -72,6 +86,12 @@ public class BucketController {
 
     }
 
+    /**
+     * Apply discount
+     * @param bucket Bucket
+     * @param code String
+     * @return Bucket with new total
+     */
     @PostMapping("bucket/apply_discount/{code}")
     public ResponseEntity<Bucket> applyDiscount(@RequestBody Bucket bucket, @PathVariable String code) {
         try {
@@ -82,6 +102,12 @@ public class BucketController {
         }
     }
 
+    /**
+     * Pay and finish bucket
+     * @param request Bucket and payment type
+     * @return Paid Bucket
+     * @throws JsonProcessingException
+     */
     @PutMapping("bucket/pay")
     public ResponseEntity<Bucket> pay(@RequestBody JsonNode request) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();

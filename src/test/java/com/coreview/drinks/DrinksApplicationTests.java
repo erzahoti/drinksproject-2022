@@ -1,13 +1,11 @@
 package com.coreview.drinks;
 
-import com.coreview.drinks.controller.BucketController;
 import com.coreview.drinks.controller.DrinkController;
 import com.coreview.drinks.data.bucket.*;
 import com.coreview.drinks.data.drink.Drink;
 import com.coreview.drinks.data.drink.DrinkType;
 import com.coreview.drinks.data.user.User;
 import com.coreview.drinks.repository.BucketRepository;
-import com.coreview.drinks.repository.DrinkRepository;
 import com.coreview.drinks.service.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -60,7 +58,7 @@ class DrinksApplicationTests {
         d.setDrinkType(drinkType);
         d.setQuantity(100);
 
-        List<Drink>  list = new ArrayList<>();
+        List<Drink> list = new ArrayList<>();
         list.add(d);
         Mockito.when(drinkService.getAllDrinks()).thenReturn(list);
         List<Drink> drinks = drinkController.getAllDrinks().getBody();
@@ -79,7 +77,7 @@ class DrinksApplicationTests {
         Mockito.when(userService.getUserById(1)).thenReturn(java.util.Optional.of(user));
         Mockito.when(drinkService.getDrinkById(1)).thenReturn(java.util.Optional.of(drink));
         Mockito.when(bucketRepository.getBucketByUserAndStatus(user, BucketStatus.DRAFT)).thenReturn(Optional.empty());
-        Mockito.when( bucketOrderService.createBucketOrder(drink)).thenReturn(bucketOrder);
+        Mockito.when(bucketOrderService.createBucketOrder(drink)).thenReturn(bucketOrder);
 
         Bucket bucket = bucketService.addToBucket(drink, user);
         boolean anyMatch = bucket.getOrders().stream().anyMatch(order -> order.getDrink().getId().equals(drink.getId()));
@@ -92,7 +90,7 @@ class DrinksApplicationTests {
         Bucket bucket = (Bucket) data.get("bucket");
         Discount discount = (Discount) data.get("discount");
 
-        double finalTotalWithDiscount = bucket.getTotalPrice() - (((float) discount.getPercentage()/100)*bucket.getTotalPrice());
+        double finalTotalWithDiscount = bucket.getTotalPrice() - (((float) discount.getPercentage() / 100) * bucket.getTotalPrice());
         Mockito.when(discountService.getDiscountByCode(discount.getCode())).thenReturn(java.util.Optional.of(discount));
         Mockito.when(bucketRepository.findById(bucket.getId())).thenReturn(java.util.Optional.of(bucket));
 
@@ -101,7 +99,7 @@ class DrinksApplicationTests {
     }
 
     @Test
-    public void pay(){
+    public void pay() {
         Map<String, Object> data = getMockData();
         Bucket bucket = (Bucket) data.get("bucket");
         Mockito.when(bucketRepository.getOne(bucket.getId())).thenReturn(bucket);
@@ -150,8 +148,8 @@ class DrinksApplicationTests {
         bucket.setUser(user);
         bucket.setId(1);
         bucket.setStatus(BucketStatus.DRAFT);
-        bucket.setTotalPrice(bucketOrder.getPrice()*bucketOrder.getQuantity());
-        bucket.setFinalTotalPrice(bucketOrder.getPrice()*bucketOrder.getQuantity());
+        bucket.setTotalPrice(bucketOrder.getPrice() * bucketOrder.getQuantity());
+        bucket.setFinalTotalPrice(bucketOrder.getPrice() * bucketOrder.getQuantity());
         bucket.setDiscount(discount);
 
         Map<String, Object> res = new HashMap<>();

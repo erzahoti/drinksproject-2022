@@ -24,6 +24,10 @@ public class BucketService {
         this.discountService = discountService;
     }
 
+    public Optional<Bucket> getBucket(User user) {
+        return bucketRepository.getBucketByUserAndStatus(user, BucketStatus.DRAFT);
+    }
+
     public Bucket addToBucket(Drink drink, User user) {
         Optional<Bucket> checkBucket = getBucket(user);
         Bucket bucket;
@@ -36,19 +40,15 @@ public class BucketService {
         } else {
             bucket = checkBucket.get();
         }
-        List<BucketOrder> bucketOrderList =  bucket.getOrders() != null ? bucket.getOrders() : new ArrayList<>();
+        List<BucketOrder> bucketOrderList = bucket.getOrders() != null ? bucket.getOrders() : new ArrayList<>();
         bucketOrderList = updateBucketOrderList(bucketOrderList, drink);
         bucket.setOrders(bucketOrderList);
         updateTotal(bucket);
         this.bucketRepository.save(bucket);
-        return  bucket;
+        return bucket;
     }
 
-    public Optional<Bucket> getBucket(User user) {
-        return bucketRepository.getBucketByUserAndStatus(user, BucketStatus.DRAFT);
-    }
-
-    public Bucket updateBucket(BucketOrder bucketOrder, Bucket bucket){
+    public Bucket updateBucket(BucketOrder bucketOrder, Bucket bucket) {
         Optional<Bucket> bucketToUpdate = bucketRepository.findById(bucket.getId());
         if (bucketToUpdate.isEmpty()) throw new EntityNotFoundException("Bucket not found!");
         bucketOrderService.updateBucketOrderQuantity(bucketOrder);
@@ -59,7 +59,6 @@ public class BucketService {
     public Bucket applyDiscount(Bucket bucket, String discountCode) {
         Optional<Bucket> bucketToUpdate = this.bucketRepository.findById(bucket.getId());
         if (bucketToUpdate.isEmpty()) throw new NullPointerException();
-
         Optional<Discount> discount = this.discountService.getDiscountByCode(discountCode);
         if (discount.isEmpty()) throw new NullPointerException();
         bucketToUpdate.get().setDiscount(discount.get());
@@ -80,12 +79,12 @@ public class BucketService {
     List<BucketOrder> updateBucketOrderList(List<BucketOrder> bucketOrderList, Drink drink) {
         Optional<BucketOrder> bucketOrderExist = bucketOrderList.stream().filter(bucketOrder -> bucketOrder.getDrink().equals(drink)).findFirst();
         BucketOrder bucketOrder;
-        if(bucketOrderExist.isEmpty()) {
+        if (bucketOrderExist.isEmpty()) {
             bucketOrder = this.bucketOrderService.createBucketOrder(drink);
             bucketOrderList.add(bucketOrder);
         } else {
             bucketOrder = bucketOrderExist.get();
-            bucketOrder.setQuantity(bucketOrder.getQuantity()+1);
+            bucketOrder.setQuantity(bucketOrder.getQuantity() + 1);
         }
         return bucketOrderList;
     }
@@ -94,14 +93,15 @@ public class BucketService {
         double total = calculatePrice(bucketToUpdate.getOrders());
         bucketToUpdate.setTotalPrice(total);
         Discount discount = bucketToUpdate.getDiscount();
-        if(discount != null) total = calculateDiscount(total, discount.getPercentage());
+        if (discount != null) total = calculateDiscount(total, discount.getPercentage());
         bucketToUpdate.setFinalTotalPrice(total);
     }
+
     double calculatePrice(List<BucketOrder> bucketOrderList) {
-        return bucketOrderList.stream().mapToDouble(order -> order.getPrice()*order.getQuantity()).sum();
+        return bucketOrderList.stream().mapToDouble(order -> order.getPrice() * order.getQuantity()).sum();
     }
 
     double calculateDiscount(double existingPrice, int percentage) {
-        return existingPrice - (((float) percentage/100)*existingPrice);
+        return existingPrice - (((float) percentage / 100) * existingPrice);
     }
 }
