@@ -10,4 +10,6 @@ To run this project you should have already installed Java 11 (Set JAVA_HOME Pat
 ## Development server
 Run `mvn spring-boot:run`.
 
+## Frontend part
 
+https://github.com/erzahoti/drinks-ui
