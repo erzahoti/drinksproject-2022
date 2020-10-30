@@ -11,20 +11,20 @@ public class BucketOrder {
 
     @Id
     @GeneratedValue
-    Integer id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "drink_id")
-    Drink drink;
+    private Drink drink;
 
     @Column
-    int quantity;
+    private int quantity;
 
     @Column
-    Date orderDate;
+    private Date orderDate;
 
     @Column
-    double price;
+    private double price;
 
     public Drink getDrink() {
         return drink;

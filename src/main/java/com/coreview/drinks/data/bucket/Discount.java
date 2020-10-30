@@ -8,13 +8,13 @@ public class Discount {
 
     @Id
     @GeneratedValue
-    Integer id;
+    private Integer id;
 
     @Column
-    String code;
+    private String code;
 
     @Column
-    int percentage;
+    private int percentage;
 
     public String getCode() {
         return code;

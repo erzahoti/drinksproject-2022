@@ -8,15 +8,15 @@ public class User {
 
     @Id
     @GeneratedValue
-    Integer id;
+    private Integer id;
 
     @Column
-    String email;
+    private String email;
 
     @Column
-    String name;
+    private String name;
 
-    @Column
+    private @Column
     String address;
 
     public Integer getId() {

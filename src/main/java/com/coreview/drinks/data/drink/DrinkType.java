@@ -8,13 +8,13 @@ public class DrinkType {
 
     @Id
     @GeneratedValue
-    Integer id;
+    private Integer id;
 
     @Column
-    String name;
+    private String name;
 
     @Column
-    String description;
+    private String description;
 
     public int getId() {
         return id;

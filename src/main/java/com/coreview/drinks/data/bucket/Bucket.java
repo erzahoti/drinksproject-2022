@@ -12,30 +12,30 @@ public class Bucket {
 
     @Id
     @GeneratedValue
-    Integer id;
+    private Integer id;
 
     @OneToMany
-    List<BucketOrder> orders;
+    private List<BucketOrder> orders;
 
     @Column
-    double totalPrice;
+    private double totalPrice;
 
     @ManyToOne
     @JoinColumn(name = "discount_id")
-    Discount discount;
+    private Discount discount;
 
     @Column
-    double finalTotalPrice;
+    private double finalTotalPrice;
 
     @Column
-    PaymentType paymentType;
+    private PaymentType paymentType;
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    User user;
+    private User user;
 
     @Column
-    BucketStatus status;
+    private BucketStatus status;
 
     public Bucket() {
     }

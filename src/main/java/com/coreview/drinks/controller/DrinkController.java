@@ -27,7 +27,7 @@ public class DrinkController {
      */
     @GetMapping("/drinks")
     public ResponseEntity<List<Drink>> getAllDrinks() {
-        return new ResponseEntity(drinkService.getAllDrinks(), new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(drinkService.getAllDrinks(), new HttpHeaders(), HttpStatus.OK);
     }
 
 }

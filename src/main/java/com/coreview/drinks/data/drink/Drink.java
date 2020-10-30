@@ -8,20 +8,20 @@ public class Drink {
 
     @Id
     @GeneratedValue
-    Integer id;
+    private Integer id;
 
     @OneToOne
     @JoinColumn(name = "drink_type_id")
-    DrinkType drinkType;
+    private DrinkType drinkType;
 
     @Column
-    String description;
+    private String description;
 
     @Column
-    int quantity;
+    private int quantity;
 
     @Column
-    double price;
+    private double price;
 
     public DrinkType getDrinkType() {
         return drinkType;
