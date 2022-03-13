@@ -1,8 +1,8 @@
 package com.drinksproject.drinks.repository;
 
-import com.drinksproject.drinks.data.bucket.Bucket;
-import com.drinksproject.drinks.data.bucket.BucketStatus;
-import com.drinksproject.drinks.data.user.User;
+import com.drinksproject.drinks.model.bucket.Bucket;
+import com.drinksproject.drinks.model.bucket.BucketStatus;
+import com.drinksproject.drinks.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

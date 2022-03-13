@@ -1,6 +1,6 @@
 package com.drinksproject.drinks.controller.contracts;
 
-import com.drinksproject.drinks.data.bucket.PaymentType;
+import com.drinksproject.drinks.model.bucket.PaymentType;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

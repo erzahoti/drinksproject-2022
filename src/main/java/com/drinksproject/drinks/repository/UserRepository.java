@@ -1,6 +1,6 @@
 package com.drinksproject.drinks.repository;
 
-import com.drinksproject.drinks.data.user.User;
+import com.drinksproject.drinks.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

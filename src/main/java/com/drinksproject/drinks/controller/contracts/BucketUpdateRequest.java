@@ -1,6 +1,6 @@
 package com.drinksproject.drinks.controller.contracts;
 
-import com.drinksproject.drinks.data.bucket.BucketOrder;
+import com.drinksproject.drinks.model.bucket.BucketOrder;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

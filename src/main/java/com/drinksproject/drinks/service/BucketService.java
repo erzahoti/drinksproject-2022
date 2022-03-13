@@ -1,9 +1,9 @@
 package com.drinksproject.drinks.service;
 
 import com.drinksproject.drinks.controller.contracts.DrinkRequest;
-import com.drinksproject.drinks.data.bucket.*;
-import com.drinksproject.drinks.data.drink.Drink;
-import com.drinksproject.drinks.data.user.User;
+import com.drinksproject.drinks.model.bucket.*;
+import com.drinksproject.drinks.model.drink.Drink;
+import com.drinksproject.drinks.model.user.User;
 import com.drinksproject.drinks.repository.BucketRepository;
 import org.springframework.stereotype.Service;
 

@@ -3,7 +3,7 @@ package com.drinksproject.drinks.controller;
 import com.drinksproject.drinks.controller.contracts.BucketUpdateRequest;
 import com.drinksproject.drinks.controller.contracts.DrinkRequest;
 import com.drinksproject.drinks.controller.contracts.PayBucketRequest;
-import com.drinksproject.drinks.data.bucket.Bucket;
+import com.drinksproject.drinks.model.bucket.Bucket;
 
 import com.drinksproject.drinks.service.BucketOrderService;
 import com.drinksproject.drinks.service.BucketService;

@@ -1,6 +1,6 @@
 package com.drinksproject.drinks.service;
 
-import com.drinksproject.drinks.data.user.User;
+import com.drinksproject.drinks.model.user.User;
 import com.drinksproject.drinks.repository.UserRepository;
 import org.springframework.stereotype.Service;
 

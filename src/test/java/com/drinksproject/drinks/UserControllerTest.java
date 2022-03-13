@@ -1,6 +1,6 @@
 package com.drinksproject.drinks;
 
-import com.drinksproject.drinks.data.user.User;
+import com.drinksproject.drinks.model.user.User;
 import com.drinksproject.drinks.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;

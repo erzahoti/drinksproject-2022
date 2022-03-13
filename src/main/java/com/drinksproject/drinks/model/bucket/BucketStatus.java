@@ -1,4 +1,4 @@
-package com.drinksproject.drinks.data.bucket;
+package com.drinksproject.drinks.model.bucket;
 
 public enum BucketStatus {
     DRAFT,

@@ -1,6 +1,6 @@
 package com.drinksproject.drinks.service;
 
-import com.drinksproject.drinks.data.drink.Drink;
+import com.drinksproject.drinks.model.drink.Drink;
 import com.drinksproject.drinks.repository.DrinkRepository;
 import org.springframework.stereotype.Service;
 

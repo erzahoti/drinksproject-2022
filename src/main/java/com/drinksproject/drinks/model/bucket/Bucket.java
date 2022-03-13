@@ -1,6 +1,6 @@
-package com.drinksproject.drinks.data.bucket;
+package com.drinksproject.drinks.model.bucket;
 
-import com.drinksproject.drinks.data.user.User;
+import com.drinksproject.drinks.model.user.User;
 
 import javax.persistence.*;
 import java.util.List;

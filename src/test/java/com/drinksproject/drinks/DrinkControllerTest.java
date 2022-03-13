@@ -1,7 +1,7 @@
 package com.drinksproject.drinks;
 
-import com.drinksproject.drinks.data.drink.Drink;
-import com.drinksproject.drinks.data.drink.DrinkType;
+import com.drinksproject.drinks.model.drink.Drink;
+import com.drinksproject.drinks.model.drink.DrinkType;
 import com.drinksproject.drinks.repository.DrinkRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

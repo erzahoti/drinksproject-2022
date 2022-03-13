@@ -2,11 +2,11 @@ package com.drinksproject.drinks;
 
 import com.drinksproject.drinks.controller.contracts.BucketUpdateRequest;
 import com.drinksproject.drinks.controller.contracts.DrinkRequest;
-import com.drinksproject.drinks.data.bucket.Bucket;
-import com.drinksproject.drinks.data.bucket.BucketOrder;
-import com.drinksproject.drinks.data.bucket.BucketStatus;
-import com.drinksproject.drinks.data.drink.Drink;
-import com.drinksproject.drinks.data.user.User;
+import com.drinksproject.drinks.model.bucket.Bucket;
+import com.drinksproject.drinks.model.bucket.BucketOrder;
+import com.drinksproject.drinks.model.bucket.BucketStatus;
+import com.drinksproject.drinks.model.drink.Drink;
+import com.drinksproject.drinks.model.user.User;
 import com.drinksproject.drinks.repository.BucketOrderRepository;
 import com.drinksproject.drinks.repository.BucketRepository;
 import com.drinksproject.drinks.repository.DrinkRepository;

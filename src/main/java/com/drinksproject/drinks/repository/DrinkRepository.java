@@ -1,6 +1,6 @@
 package com.drinksproject.drinks.repository;
 
-import com.drinksproject.drinks.data.drink.Drink;
+import com.drinksproject.drinks.model.drink.Drink;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

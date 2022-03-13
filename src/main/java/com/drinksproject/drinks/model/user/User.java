@@ -1,4 +1,4 @@
-package com.drinksproject.drinks.data.user;
+package com.drinksproject.drinks.model.user;
 
 import javax.persistence.*;
 import java.util.UUID;

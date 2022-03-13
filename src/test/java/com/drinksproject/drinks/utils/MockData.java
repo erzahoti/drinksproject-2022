@@ -1,12 +1,12 @@
 package com.drinksproject.drinks.utils;
 
-import com.drinksproject.drinks.data.bucket.Bucket;
-import com.drinksproject.drinks.data.bucket.BucketOrder;
-import com.drinksproject.drinks.data.bucket.BucketStatus;
-import com.drinksproject.drinks.data.bucket.Discount;
-import com.drinksproject.drinks.data.drink.Drink;
-import com.drinksproject.drinks.data.drink.DrinkType;
-import com.drinksproject.drinks.data.user.User;
+import com.drinksproject.drinks.model.bucket.Bucket;
+import com.drinksproject.drinks.model.bucket.BucketOrder;
+import com.drinksproject.drinks.model.bucket.BucketStatus;
+import com.drinksproject.drinks.model.bucket.Discount;
+import com.drinksproject.drinks.model.drink.Drink;
+import com.drinksproject.drinks.model.drink.DrinkType;
+import com.drinksproject.drinks.model.user.User;
 
 import java.util.*;
 

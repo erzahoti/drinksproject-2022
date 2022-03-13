@@ -1,6 +1,6 @@
 package com.drinksproject.drinks.service;
 
-import com.drinksproject.drinks.data.bucket.Discount;
+import com.drinksproject.drinks.model.bucket.Discount;
 import com.drinksproject.drinks.repository.DiscountRepository;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package com.drinksproject.drinks.controller;
 
-import com.drinksproject.drinks.data.user.User;
+import com.drinksproject.drinks.model.user.User;
 import com.drinksproject.drinks.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
