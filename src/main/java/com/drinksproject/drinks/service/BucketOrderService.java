@@ -32,7 +32,9 @@ public class BucketOrderService {
 
     public void updateBucketOrderQuantity(BucketOrder bucketOrder) {
         Optional<BucketOrder> bucketOrderToUpdate = this.bucketOrderRepository.findById(bucketOrder.getId());
-        if (bucketOrderToUpdate.isEmpty()) throw new EntityNotFoundException("Bucket order not found!");
+        if (bucketOrderToUpdate.isEmpty()) {
+            throw new EntityNotFoundException("Bucket order not found!");
+        }
         bucketOrderToUpdate.get().setQuantity(bucketOrder.getQuantity());
         this.bucketOrderRepository.save(bucketOrderToUpdate.get());
     }
